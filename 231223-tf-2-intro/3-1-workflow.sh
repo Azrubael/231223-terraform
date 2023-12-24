@@ -14,8 +14,6 @@ sudo apt update && sudo apt install terraform
 terraform version
 # Terraform v1.6.6 on linux_amd64
 
-mkdir terraform
-cd terraform
 sudo apt-get install mc
 
 
@@ -39,3 +37,11 @@ aws configure set default.region $az
 # Create a key which can be used for ssh login
 ssh-keygen -N "" -f $HOME/.ssh/id_rsa
 
+mkdir terraform-test
+cd terraform-test
+vim main.tf
+vim resource.tf
+vim terraform.tfvars
+
+terraform init
+terraform console
