@@ -1,8 +1,8 @@
 # 2023-12-25    11:10
 =====================
 
-* 2. Demo variables
--------------------
+2. Demo variables
+-----------------
 Sometimes in Vagrant you get requests that are invalid if your time is wrong
 So always make sure that the time is correst
     $ vagrant up

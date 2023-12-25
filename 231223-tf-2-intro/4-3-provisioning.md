@@ -1,8 +1,8 @@
 # 2023-12-25    11:33
 =====================
 
-* 3. Software Provisioning
---------------------------
+3. Software Provisioning
+------------------------
 
 vagrant@ubuntu-bionic:~/4-1-demo-1$ terraform version
 Terraform v1.6.6
