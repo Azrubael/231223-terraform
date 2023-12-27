@@ -6,11 +6,11 @@
 **/target/
 
 # misc
-**/*.env*
-**/*key.pem
-**/terraform.tfvars
+*.env*
+*key.pem
+terraform.tfvars
 
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
-**/*-console.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*-console.log
