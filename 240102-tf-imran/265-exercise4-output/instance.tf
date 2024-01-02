@@ -3,14 +3,14 @@ resource "aws_key_pair" "dove-key" {
   public_key = file("dovekey.pub")
 }
 
-resource "aws_instance" "uh-inst" {
+resource "aws_instance" "uh_inst" {
   ami                    = var.AMIS[var.REGION]
   instance_type          = "t2.micro"
   availability_zone      = var.ZONE1
   key_name               = aws_key_pair.dove-key.key_name
   vpc_security_group_ids = ["sg-07c14eb3a2b23ac8d"]
   tags = {
-    Name    = "uh-Instance"
+    Name    = "Uh-Instance"
     Project = "Imran-tf"
   }
 
@@ -22,7 +22,7 @@ resource "aws_instance" "uh-inst" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/web.sh",
-      "sudo sed -i -e 's/\r$//' /tmp/web.sh",  # Remove the spurious CR characters.
+      "sudo sed -i -e 's/\r$//' /tmp/web.sh", # Remove the spurious CR characters.
       "sudo /tmp/web.sh",
     ]
   }
@@ -33,4 +33,13 @@ resource "aws_instance" "uh-inst" {
     user        = var.USER
     private_key = file("dovekey")
   }
+}
+
+
+output "PiblicIP" {
+  value = aws_instance.uh_inst.public_ip
+}
+
+output "PrivateIP" {
+  value = aws_instance.uh_inst.private_ip
 }
