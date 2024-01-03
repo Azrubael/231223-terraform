@@ -75,8 +75,10 @@ Vagrant.configure("2") do |config|
     cp /home/vagrant/.bashrc /home/vagrant/.bashrc_backup
 
     # Set new values and comment out old strings
-    # sed -i '^HISTSIZE=.*/#&\nHISTSIZE=10000/' ~/.bashrc
-    # sed -i '^HISTFILESIZE=.*/#&\nHISTFILESIZE=20000/' ~/.bashrc
+    # sed -i '/HISTSIZE/d' ~/.bashrc && echo "export HISTSIZE=10000" >> /home/vagrant/.bashrc
+    # sed -i '/HISTFILESIZE/d' ~/.bashrc && echo "export HISTFILESIZE=10000" >> /home/vagrant/.bashrc
+    sed -i 's/^HISTSIZE=.*/HISTSIZE=7500/' /home/vagrant/.bashrc
+    sed -i 's/^HISTFILESIZE=.*/HISTFILESIZE=15000/' /home/vagrant/.bashrc
 
     # Create a key which can be used for ssh login
     ssh-keygen -N "" -f /home/vagrant/.ssh/id_rsa
